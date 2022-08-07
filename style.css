@@ -1,0 +1,119 @@
+body {
+    background-color: #121212;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    color: white;
+    overflow-x: hidden;
+}
+
+#navbar {
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    background-color: RGB(32, 32, 32);
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 .5rem 1rem rgba(29, 29, 29, 0.1);
+}
+
+#color-mode-changer {
+    color: white;
+    font-size: 1.7rem;
+    margin-right: 10px;
+    user-select: none;
+    position: absolute;
+    right: 0;
+}
+
+i:hover, #add-todo-button:hover {
+    cursor: pointer;
+}
+
+i {
+    user-select: none;
+}
+
+/* #date {
+    display: none;
+} */
+
+
+#logo {
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 30px;
+    margin-left: 10px;
+    position: absolute;
+    left: 0;
+}
+
+#new-todo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 1vw;
+}
+
+#add-todo-button {
+    border-radius: 5px;
+    background-color: rgb(179, 0, 255);
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    box-sizing: border-box;
+}
+
+#add-todo-button-line1 {
+    background-color: white;
+    height: 0.2em;
+    width: 1em;
+    position: absolute;
+    border-radius: 5px;
+}
+
+#add-todo-button-line2 {
+    background-color: white;
+    height: 1em;
+    width: 0.2em;
+    position: absolute;
+    border-radius: 5px;
+}
+
+#todo-name {
+    height: 35px;
+    width: 95vw;
+    border-radius: 5px;
+}
+
+.todo {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    margin: 0.3rem 1vw;
+    padding: 1vw;
+    background-color: RGB(30, 30, 30);
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+
+#todo-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.todo i {
+    position: absolute;
+    right: 3vw;
+}
+
+@media only screen and (max-width: 400px) {
+    #date {
+        display: none;
+    }
+}

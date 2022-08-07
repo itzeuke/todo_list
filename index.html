@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>ToDo list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div id="navbar">
+        <div id="logo">ToDo List</div>
+        <div id="date">00.00.0000</div>
+        <i title="Dark/White Mode" class="material-icons" id="color-mode-changer">palette</i>
+    </div>
+    <div id="new-todo">
+        <input type="text" id="todo-name">
+        <div id="add-todo-button" onclick="add_todo()">
+            <div id="add-todo-button-line1"></div>
+            <div id="add-todo-button-line2"></div>
+        </div>
+    </div>
+    <div id="todo-list"></div>
+    <script src="main.js"></script>
+</body>
+</html>
