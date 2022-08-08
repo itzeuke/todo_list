@@ -1,4 +1,3 @@
-let time = document.getElementById("time");
 let date = document.getElementById("date");
 let todo_list = document.getElementById("todo-list");
 
@@ -27,5 +26,6 @@ function auto_update_time(){
 
 function add_todo(){
     let new_todo = document.getElementById("todo-name");
+    if(!new_todo.value) return;
     todo_list.innerHTML += `<div class="todo"><span>${new_todo.value}</span><i class="material-icons">delete</i></div>`;
 }
