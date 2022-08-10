@@ -24,8 +24,21 @@ function auto_update_time(){
     }, 1000);
 }
 
-function add_todo(){
-    let new_todo = document.getElementById("todo-name");
-    if(!new_todo.value) return;
-    todo_list.innerHTML += `<div class="todo"><span>${new_todo.value}</span><i class="material-icons">delete</i></div>`;
+function new_todo(){
+    let new_todo_name = document.getElementById("todo-name").value;
+    if(!new_todo_name) return;  //if todo is empty skip
+    todo_list.innerHTML += `<div class="todo"><span>${new_todo_name}</span><i class="material-icons">delete</i></div>`;
+    upload_todo(new_todo_name);
+}
+
+function upload_todo(todo){
+    let todos = localStorage.getItem("todos");
+    if(todos){
+        todos = JSON.parse(todos).todos;
+    } else {
+        todos = [];
+    }
+    todos.push(todo);
+    localStorage.setItem("todos", JSON.stringify({todos: todos}));
+    console.log(localStorage.getItem("todos"));
 }
