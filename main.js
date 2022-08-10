@@ -52,7 +52,7 @@ function load_todos(){
     todo_list.innerHTML = String();
     todos.forEach(element => {
         todo_list.innerHTML += display_todo(element, id_counter);
-        id_counter + 1;
+        id_counter++;
     });
 }
 
@@ -65,15 +65,15 @@ function display_todo(element, id){   //template for todo display
             id = todos = JSON.parse(todos).todos.length;
         }
     }
-    return `<div class="todo"><span>${element}</span><i class="material-icons" id="${id}" onclick="delete_todo(this)">delete</i></div>`;
+    return `<div class="todo"><span>${element}</span><i class="material-icons" id="${id}" onclick="delete_todo(this.getAttribute('id'))">delete</i></div>`;
 }
 
-function delete_todo(element){
+function delete_todo(id){
     let todos = localStorage.getItem("todos");
     todos = JSON.parse(todos).todos;
     if(todos.length > 1){
-        let id = element.id;
-        todos.splice(id + 1, 1);
+        console.log(id);
+        todos.splice(id, 1);
     } else {
         todos.pop();
     }
