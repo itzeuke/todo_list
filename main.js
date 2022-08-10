@@ -71,8 +71,12 @@ function display_todo(element, id){   //template for todo display
 function delete_todo(element){
     let todos = localStorage.getItem("todos");
     todos = JSON.parse(todos).todos;
-    let id = element.id;
-    todos.splice(id, 1);
+    if(todos.length > 1){
+        let id = element.id;
+        todos.splice(id + 1, 1);
+    } else {
+        todos.pop();
+    }
     localStorage.setItem("todos", JSON.stringify({todos: todos}));
     console.log(JSON.stringify({todos: todos}));
     load_todos();
