@@ -81,3 +81,5 @@ function delete_todo(element){
     console.log(JSON.stringify({todos: todos}));
     load_todos();
 }
+
+document.getElementById("todo-name").addEventListener("keypress", event => {if(event.key === "Enter") new_todo()});
