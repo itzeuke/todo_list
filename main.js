@@ -3,6 +3,7 @@ let todo_list = document.getElementById("todo-list");
 
 display_date();
 auto_update_time();
+load_todos();
 
 function display_date(){
     let day = new Date().getDate();
@@ -27,7 +28,7 @@ function auto_update_time(){
 function new_todo(){
     let new_todo_name = document.getElementById("todo-name").value;
     if(!new_todo_name) return;  //if todo is empty skip
-    todo_list.innerHTML += `<div class="todo"><span>${new_todo_name}</span><i class="material-icons">delete</i></div>`;
+    todo_list.innerHTML += display_todo(new_todo_name);
     upload_todo(new_todo_name);
 }
 
@@ -41,4 +42,17 @@ function upload_todo(todo){
     todos.push(todo);
     localStorage.setItem("todos", JSON.stringify({todos: todos}));
     console.log(localStorage.getItem("todos"));
+}
+
+function load_todos(){
+    let todos = localStorage.getItem("todos");
+    if(!todos) return;
+    todos = JSON.parse(todos).todos;
+    todos.forEach(element => {
+        todo_list.innerHTML += display_todo(element);
+    });
+}
+
+function display_todo(element){   //template for todo display
+    return `<div class="todo"><span>${element}</span><i class="material-icons">delete</i></div>`;
 }
