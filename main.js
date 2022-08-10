@@ -48,11 +48,32 @@ function load_todos(){
     let todos = localStorage.getItem("todos");
     if(!todos) return;
     todos = JSON.parse(todos).todos;
+    let id_counter = 0;
+    todo_list.innerHTML = String();
     todos.forEach(element => {
-        todo_list.innerHTML += display_todo(element);
+        todo_list.innerHTML += display_todo(element, id_counter);
+        id_counter + 1;
     });
 }
 
-function display_todo(element){   //template for todo display
-    return `<div class="todo"><span>${element}</span><i class="material-icons">delete</i></div>`;
+function display_todo(element, id){   //template for todo display
+    let todos = localStorage.getItem("todos");
+    if(id === undefined){
+        if(!todos){
+            id = 0;
+        } else {
+            id = todos = JSON.parse(todos).todos.length;
+        }
+    }
+    return `<div class="todo"><span>${element}</span><i class="material-icons" id="${id}" onclick="delete_todo(this)">delete</i></div>`;
+}
+
+function delete_todo(element){
+    let todos = localStorage.getItem("todos");
+    todos = JSON.parse(todos).todos;
+    let id = element.id;
+    todos.splice(id, 1);
+    localStorage.setItem("todos", JSON.stringify({todos: todos}));
+    console.log(JSON.stringify({todos: todos}));
+    load_todos();
 }
