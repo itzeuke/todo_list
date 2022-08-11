@@ -4,6 +4,7 @@ let todo_list = document.getElementById("todo-list");
 display_date();
 auto_update_time();
 load_todos();
+load_color_mode();
 
 function display_date(){
     let day = new Date().getDate();
@@ -80,6 +81,46 @@ function delete_todo(id){
     localStorage.setItem("todos", JSON.stringify({todos: todos}));
     console.log(JSON.stringify({todos: todos}));
     load_todos();
+}
+
+function load_color_mode(){
+    let color_mode = localStorage.getItem("color_mode");
+    if(!color_mode) color_mode = "dark";
+
+    if(color_mode == "dark"){
+        localStorage.setItem("color_mode", color_mode);
+    } 
+    if(color_mode == "white") {
+        light_color_mode();
+        localStorage.setItem("color_mode", color_mode);
+    }
+}
+
+function light_color_mode(){
+    let color_mode = localStorage.getItem("color_mode");
+    document.body.style.backgroundColor = "#e6e7e8";
+    document.getElementById("navbar").style.backgroundColor = "white";
+
+    //copied code
+    var elements = document.getElementsByClassName("todo");
+    for(var i = 0; i < elements.length; i++){
+        elements[i].style.backgroundColor = "white";
+    }
+
+    document.body.style.color = "black";
+    document.getElementById("color-mode-changer").style.color = "black";
+}
+
+function display_color_mode(){
+    let color_mode = localStorage.getItem("color_mode");
+    if (color_mode == "dark"){
+        color_mode = "white";
+    } else {
+        color_mode = "dark";
+        location.reload();
+    }
+    localStorage.setItem("color_mode", color_mode);
+    light_color_mode();
 }
 
 document.getElementById("todo-name").addEventListener("keypress", event => {if(event.key === "Enter") new_todo()});
