@@ -30,7 +30,7 @@ function new_todo(){
     let new_todo_name = document.getElementById("todo-name").value;
     if(!new_todo_name) return;  //if todo is empty skip
     todo_list.innerHTML += display_todo(new_todo_name);
-    display_color_mode();
+    load_color_mode();
     upload_todo(new_todo_name);
 }
 
