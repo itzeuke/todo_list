@@ -32,6 +32,7 @@ function new_todo(){
     todo_list.innerHTML += display_todo(new_todo_name);
     load_color_mode();
     upload_todo(new_todo_name);
+    document.getElementById("todo-name").value = String();
 }
 
 function upload_todo(todo){
