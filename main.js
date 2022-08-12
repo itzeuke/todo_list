@@ -54,6 +54,7 @@ function load_todos(){
     todo_list.innerHTML = String();
     todos.forEach(element => {
         todo_list.innerHTML += display_todo(element, id_counter);
+        load_color_mode();
         id_counter++;
     });
 }
